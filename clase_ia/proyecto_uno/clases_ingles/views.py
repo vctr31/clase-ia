@@ -6,7 +6,7 @@ import openai
 from django.http import JsonResponse
 
 
-openai.api_key = "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"
+
 
 def inicio(request):
     return render(request, 'index.html')
