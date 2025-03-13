@@ -10,7 +10,7 @@ import io
 from openai import OpenAIError
 from translate import Translator
 
-OPENAI_API_KEY = "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"
+OPENAI_API_KEY = ""
 openai.api_key = OPENAI_API_KEY
 def inicio(request):
     return render(request, 'index.html')
