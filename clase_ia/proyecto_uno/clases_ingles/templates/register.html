@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Aprende Inglés</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a Aprende Inglés</h1>
+        <p>Crea tu cuenta para comenzar a aprender</p>
+    </header>
+
+    <main>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="full_name" placeholder="Nombre de usuario" required>
+            <input type="email" name="email" placeholder="Correo electrónico" required>
+            <input type="password" name="password1" placeholder="Contraseña" required>
+            <input type="password" name="password2" placeholder="Confirmar Contraseña" required>
+            <button type="submit">Crear cuenta</button>
+            <p>¿Ya tienes cuenta? <a href="">Inicia sesión</a></p>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Aprende Inglés. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

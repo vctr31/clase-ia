@@ -1,0 +1,40 @@
+<html lang="en">
+    <head>
+        <script>
+            function translateword(wordElement){
+                let word = wordElement.innerText;
+
+            fetch(`/translate-word/?word=${word}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error);
+                    } else {
+                        wordElement.innerHTML = `<b>${data.resultado}:</b>`;
+                        wordElement.style.backgroundColor = "#ffffcc";
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            }
+        </script>
+        <style>
+            .monologue-block {
+                cursor: pointer;
+                padding: 5px;
+                display: inline-block;
+            }
+            .monologue-block:hover {
+                background-color: lightblue;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Click on any word to translate it</h2>
+        <p>
+            {% for word in texto.split %}
+            <span class="monologue-block" onclick="translateword(this)">{{ word }}</span>
+            {% endfor %}
+        </p>
+    </body>
+</html>
+
